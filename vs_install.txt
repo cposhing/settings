@@ -1,0 +1,11 @@
+# vs install 
+
+### with config 
+VisualStudioSetup.exe --config "C:\my.vsconfig"
+
+### with path 
+VisualStudioSetup.exe --config "C:\my.vsconfig" --installPath "C:\VS"
+
+# refrence 
+> https://learn.microsoft.com/zh-cn/visualstudio/install/command-line-parameter-examples?view=vs-2022
+> https://visualstudio.microsoft.com/zh-hans/downloads/
