@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true" scanPeriod="1 seconds">
+
+    <property name="APP_NAME" value="${APP_NAME:-xxx-job-admin}"/>
+    <property name="LOG_PATH" value="${LOG_PATH:-log}"/>
+
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH}/${APP_NAME}.log}"/>
+
+    <property name="LOGBACK_ROLLINGPOLICY_FILE_NAME_PATTERN"
+              value="${LOG_PATH}/${LOG_ARCHIVE_DIR:-archive}/${APP_NAME}.%d{yyyy-MM-dd}.%i.gz"/>
+
+    <!-- 当 LOG_FILE 对应的文件达到value对应的大小时, 开始`归档`动作 -->
+<!--    <property name="LOGBACK_ROLLINGPOLICY_MAX_FILE_SIZE" value="10mb"/>-->
+
+    <!-- 当`归档`文件达到多大时, 执行`删除`动作, 必须指定`LOGBACK_ROLLINGPOLICY_MAX_HISTORY`才能生效 -->
+    <!--https://stackoverflow.com/questions/45030150/adding-date-to-logback-xml-->
+<!--    <property name="LOGBACK_ROLLINGPOLICY_TOTAL_SIZE_CAP" value="1gb"/>-->
+
+    <!-- 执行`删除动作`时, 删除的文件是`几天`前创建的, 单位`天`-->
+<!--    <property name="LOGBACK_ROLLINGPOLICY_MAX_HISTORY" value="7"/>-->
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml"/>
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>
